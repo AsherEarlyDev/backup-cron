@@ -34,37 +34,37 @@ const uploadToS3 = async ({ name, path }: {name: string, path: string}) => {
 
   currentObjects = currentObjects.sort((a: any, b: any) => (a.LastModified > b.LastModified) ? 1 : -1)
 
-  // switch(backupRate){
-  //   case 'daily':
-  //     if (currentObjects.length === 7){
-  //       await client.send(
-  //         new DeleteObjectCommand({
-  //           Bucket: bucket,
-  //           Key: currentObjects[0].Key,
-  //         })
-  //       )
-  //     }
+  switch(backupRate){
+    case 'daily':
+      if (currentObjects.length === 7){
+        await client.send(
+          new DeleteObjectCommand({
+            Bucket: bucket,
+            Key: currentObjects[0].Key,
+          })
+        )
+      }
 
-  //   case 'weekly':
-  //     if (currentObjects.length === 4){
-  //       await client.send(
-  //         new DeleteObjectCommand({
-  //           Bucket: bucket,
-  //           Key: currentObjects[0].Key,
-  //         })
-  //       )
-  //     }
+    case 'weekly':
+      if (currentObjects.length === 4){
+        await client.send(
+          new DeleteObjectCommand({
+            Bucket: bucket,
+            Key: currentObjects[0].Key,
+          })
+        )
+      }
 
-  //   case 'monthly':
-  //     if (currentObjects.length === 12){
-  //       await client.send(
-  //         new DeleteObjectCommand({
-  //           Bucket: bucket,
-  //           Key: currentObjects[0].Key,
-  //         })
-  //       )
-  //     }
-  // }
+    case 'monthly':
+      if (currentObjects.length === 12){
+        await client.send(
+          new DeleteObjectCommand({
+            Bucket: bucket,
+            Key: currentObjects[0].Key,
+          })
+        )
+      }
+  }
 
   await client.send(
     new PutObjectCommand({
