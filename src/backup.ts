@@ -3,7 +3,7 @@ import { DeleteObjectCommand, ListObjectsCommand, PutObjectCommand, S3Client, S3
 import { createReadStream } from "fs";
 import { env } from "./env";
 const { Logtail } = require("@logtail/node");
-const logtail = new Logtail("AsdCAwENWdJtukBJqK18RVrm>");
+const logtail = new Logtail("AsdCAwENWdJtukBJqK18RVrm");
 
 const uploadToS3 = async ({ name, path }: {name: string, path: string}) => {
   console.log("Uploading backup to S3...");

@@ -2,7 +2,7 @@ import { CronJob } from "cron";
 import { backup } from "./backup";
 import { env } from "./env";
 const { Logtail } = require("@logtail/node");
-const logtail = new Logtail("AsdCAwENWdJtukBJqK18RVrm>");
+const logtail = new Logtail("AsdCAwENWdJtukBJqK18RVrm");
 
 const job = new CronJob(env.BACKUP_CRON_SCHEDULE, async () => {
   try {
