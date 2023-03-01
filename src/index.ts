@@ -17,3 +17,4 @@ job.start();
 
 console.log("Backup cron scheduled...")
 logtail.info("Backup cron scheduled...");
+logtail.flush()

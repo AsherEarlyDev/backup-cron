@@ -59,6 +59,7 @@ const uploadToS3 = async ({ name, path }: {name: string, path: string}) => {
 
   console.log("Backup uploaded to S3...");
   logtail.info("Backup uploaded to S3...");
+  logtail.flush()
 }
 
 const dumpToFile = async (path: string) => {
@@ -80,6 +81,7 @@ const dumpToFile = async (path: string) => {
 
   console.log("DB dumped to file...");
   logtail.info("DB dumped to file...");
+  logtail.flush()
 }
 
 export const backup = async () => {
@@ -96,4 +98,5 @@ export const backup = async () => {
 
   console.log("DB backup complete...")
   logtail.info("DB backup complete...");
+  logtail.flush()
 }
